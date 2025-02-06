@@ -1,13 +1,12 @@
-import { StyleSheet,FlatList } from "react-native";
+import { StyleSheet, FlatList } from "react-native";
 
-import "react-native-url-polyfill/auto"
+import "react-native-url-polyfill/auto";
 
-import EditScreenInfo from "@/components/EditScreenInfo";
-import { Text, View } from "@/components/Themed";
+import EditScreenInfo from "@/src/components/EditScreenInfo";
+import { Text, View } from "@/src/components/Themed";
 
 import { useState, useEffect } from "react";
-import { supabase } from "@/lib/supabase";
-
+import { supabase } from "@/src/lib/supabase";
 
 export default function TabOneScreen() {
   const [post, setPost] = useState([]);
@@ -35,14 +34,10 @@ export default function TabOneScreen() {
         darkColor="rgba(255,255,255,0.1)"
       />
       <FlatList
-      data={post}
-      keyExtractor={item=> item.id}
-      renderItem={({item})=> <Text>{item.content}</Text>}
-      
-      
+        data={post}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => <Text>{item.content}</Text>}
       />
-
-      
     </View>
   );
 }
